@@ -10,7 +10,7 @@ export const authConfig = (passport) => {
 
       if(!compareSync(password,user.password)) return done(null,false)
 
-      done(null,user)
+      return done(null,user)
     }
   ));
 
