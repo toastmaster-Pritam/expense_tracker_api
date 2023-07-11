@@ -43,7 +43,7 @@ export const loginFailure = (req, res, next) => {
 
 export const logoutUser = expressAsyncHandler((req, res, next) => {
   req.logout((err) => {
-    next(new ErrorHandler("something wrong happened!"));
+    return next(new ErrorHandler("something wrong happened!"));
   });
   res.status(200).json({
     success: true,
