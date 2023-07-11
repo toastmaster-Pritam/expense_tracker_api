@@ -19,6 +19,5 @@ export const notFound=(req,res,next)=>{
         success:false,
         message:`Not Found ${req?.originalUrl}`
     })
-    next()
 }
 
