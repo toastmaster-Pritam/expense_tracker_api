@@ -15,6 +15,10 @@ export const errorHandler=(err,req,res,next)=>{
 }
 
 export const notFound=(req,res,next)=>{
-    next(new ErrorHandler(`Not found -${req?.originalUrl}`,404))
+    res.status(404).json({
+        success:false,
+        message:`Not Found ${req?.originalUrl}`
+    })
+    next()
 }
 
