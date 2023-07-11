@@ -43,11 +43,12 @@ export const loginFailure = (req, res, next) => {
 
 export const logoutUser = expressAsyncHandler((req, res, next) => {
   req.logout((err) => {
-    return next(new ErrorHandler("something wrong happened!"));
-  });
-  res.status(200).json({
-    success: true,
-    message: "logged out!",
+    if (err) return next(new ErrorHandler("something went wrong!"));
+
+    res.status(200).json({
+      success: true,
+      message: "logged out!",
+    });
   });
 });
 
@@ -154,6 +155,5 @@ export const updateProfile = expressAsyncHandler(async (req, res, next) => {
         message: "profile updated successfully!",
       });
     });
-   
   }
 });
