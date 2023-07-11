@@ -51,7 +51,7 @@ app.use("/api/v1/income", incomeRoute);
 app.use("/api/v1/expense", expenseRoute);
 
 // error middleware
-// app.use(notFound);
+app.use(notFound);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
